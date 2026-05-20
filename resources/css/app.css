@@ -1,0 +1,126 @@
+@import url('https://fonts.bunny.net/css?family=fraunces:400,500,600,700,800|inter:400,500,600,700|caveat:400,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply bg-cream text-ink font-sans antialiased;
+        font-feature-settings: "ss01", "cv11";
+    }
+    h1, h2, h3, h4, .display {
+        @apply font-display tracking-tight;
+    }
+    /* selection */
+    ::selection { background: #F5C518; color: #1A1410; }
+}
+
+@layer components {
+    .container-x {
+        @apply mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-12;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-200;
+    }
+    .btn-primary {
+        @apply btn bg-brand-red text-white hover:bg-brand-red-dark hover:-translate-y-0.5 shadow-card;
+    }
+    .btn-secondary {
+        @apply btn bg-brand-green text-white hover:bg-brand-green-dark hover:-translate-y-0.5 shadow-card;
+    }
+    .btn-ghost {
+        @apply btn border border-ink/20 bg-transparent text-ink hover:border-brand-green hover:text-brand-green;
+    }
+
+    .ribbon {
+        @apply relative inline-block bg-brand-red px-4 py-1 text-xs font-bold uppercase tracking-widest text-white shadow-ribbon;
+    }
+    .ribbon::before,
+    .ribbon::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 8px;
+        height: 100%;
+        background: #A8121A;
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+    .ribbon::before { left: -8px; transform: scaleX(-1); }
+    .ribbon::after  { right: -8px; }
+
+    /* Kente-inspired pattern divider using pure CSS */
+    .kente-divider {
+        height: 14px;
+        background:
+            repeating-linear-gradient(90deg,
+                #0F6B3B 0 24px,
+                #F5C518 24px 28px,
+                #D81E1E 28px 36px,
+                #1A1410 36px 40px,
+                #F5C518 40px 44px,
+                #0F6B3B 44px 60px
+            );
+        position: relative;
+    }
+    .kente-divider::before,
+    .kente-divider::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0;
+        height: 1px;
+        background: rgba(26,20,16,0.25);
+    }
+    .kente-divider::before { top: 0; }
+    .kente-divider::after  { bottom: 0; }
+
+    /* Diamond kente, more decorative — used on hero / spotlights */
+    .kente-diamonds {
+        height: 18px;
+        background:
+            linear-gradient(135deg, #F5C518 25%, transparent 25%) -10px 0/20px 20px,
+            linear-gradient(225deg, #F5C518 25%, transparent 25%) -10px 0/20px 20px,
+            linear-gradient(315deg, #F5C518 25%, transparent 25%) 0 0/20px 20px,
+            linear-gradient(45deg,  #F5C518 25%, transparent 25%) 0 0/20px 20px,
+            #1A1410;
+    }
+
+    .pill {
+        @apply inline-flex items-center gap-1.5 rounded-full bg-cream/80 px-3 py-1 text-xs font-semibold text-brand-green-dark ring-1 ring-brand-green/20;
+    }
+
+    .card {
+        @apply relative flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:ring-brand-green/30;
+    }
+
+    .link-underline {
+        @apply relative inline-block;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-size: 100% 1px;
+        background-repeat: no-repeat;
+        background-position: 0 100%;
+        transition: background-size 0.3s ease;
+    }
+    .link-underline:hover {
+        background-size: 0 1px;
+    }
+
+    /* warm grain backdrop using SVG-in-CSS */
+    .bg-grain {
+        background-color: #FAF6EE;
+        background-image:
+            radial-gradient(rgba(26,20,16,0.04) 1px, transparent 1px),
+            radial-gradient(rgba(26,20,16,0.025) 1px, transparent 1px);
+        background-size: 24px 24px, 48px 48px;
+        background-position: 0 0, 12px 12px;
+    }
+}
+
+@layer utilities {
+    .text-balance { text-wrap: balance; }
+    .text-pretty  { text-wrap: pretty; }
+}

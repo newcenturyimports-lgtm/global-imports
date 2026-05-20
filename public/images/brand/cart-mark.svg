@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56" role="img" aria-label="Cart mark">
+  <g fill="none" stroke="#0F6B3B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 6 h10 l4 36 h40 l4 -22 h-46" />
+    <path d="M16 16 h44" />
+  </g>
+  <circle cx="24" cy="50" r="3.4" fill="#1A1410"/>
+  <circle cx="52" cy="50" r="3.4" fill="#1A1410"/>
+</svg>
