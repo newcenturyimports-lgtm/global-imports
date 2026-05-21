@@ -1,0 +1,21 @@
+---
+deployment:
+  tasks:
+    - export APPPATH=/home/newcentu/global-imports
+    - export DEPLOYPATH=/home/newcentu/public_html
+    # Bootstrap files for shared hosting
+    - /bin/cp -f $APPPATH/deploy/public_html-index.php $DEPLOYPATH/index.php
+    - /bin/cp -f $APPPATH/deploy/public_html-htaccess  $DEPLOYPATH/.htaccess
+    # Public assets
+    - /bin/cp -Rf $APPPATH/public/build  $DEPLOYPATH/
+    - /bin/cp -Rf $APPPATH/public/images $DEPLOYPATH/
+    - /bin/cp -f  $APPPATH/public/favicon.ico $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp -f  $APPPATH/public/robots.txt  $DEPLOYPATH/ 2>/dev/null || true
+    # Laravel: generate APP_KEY only if empty; always run migrations + caches
+    - cd $APPPATH && grep -q "^APP_KEY=$" .env && php artisan key:generate --force || true
+    - cd $APPPATH && php artisan migrate --force
+    - cd $APPPATH && php artisan config:cache
+    - cd $APPPATH && php artisan route:cache
+    - cd $APPPATH && php artisan view:cache
+    # Permissions
+    - /bin/chmod -R 775 $APPPATH/storage $APPPATH/bootstrap/cache
