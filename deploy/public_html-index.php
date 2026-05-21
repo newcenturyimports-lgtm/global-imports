@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 define('LARAVEL_START', microtime(true));
 
 // Path to the Laravel app (one level up from public_html, then into the cloned repo)
-$appBase = __DIR__ . '/../global-import';
+$appBase = __DIR__ . '/../global-imports';
 
 // Maintenance mode check
 if (file_exists($maintenance = $appBase . '/storage/framework/maintenance.php')) {
