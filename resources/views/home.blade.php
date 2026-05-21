@@ -13,8 +13,8 @@
                 Family-owned since 2005
             </span>
 
-            <h1 class="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.02] text-balance text-ink">
-                The world's <em class="text-brand-red not-italic font-script text-6xl sm:text-7xl lg:text-8xl">pantry</em>,
+            <h1 class="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-balance text-ink">
+                The world's <em class="text-brand-red not-italic font-script text-5xl sm:text-6xl md:text-7xl lg:text-8xl">pantry</em>,
                 imported to <span class="text-brand-green">Kansas.</span>
             </h1>
 
@@ -103,8 +103,8 @@
     <div class="container-x py-20 lg:py-28 grid lg:grid-cols-12 gap-12 items-center relative">
         <div class="lg:col-span-7">
             <span class="pill !bg-brand-gold !text-ink !ring-brand-gold/40">House brand</span>
-            <h2 class="mt-5 font-script text-6xl lg:text-7xl text-brand-gold">Tembo</h2>
-            <p class="mt-3 font-display text-3xl lg:text-4xl text-balance">Our own line, milled and packed for the American kitchen.</p>
+            <h2 class="mt-5 font-script text-5xl sm:text-6xl lg:text-7xl text-brand-gold">Tembo</h2>
+            <p class="mt-3 font-display text-2xl sm:text-3xl lg:text-4xl text-balance">Our own line, milled and packed for the American kitchen.</p>
             <p class="mt-5 max-w-xl text-cream/85">
                 Tembo is the brand we put our family name behind. Black beans, jasmine rice, uji,
                 farina, white corn meal — staples sourced from trusted growers and packed to a

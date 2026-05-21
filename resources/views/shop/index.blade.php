@@ -6,8 +6,8 @@
 
 <section class="container-x pt-12 pb-6">
     <span class="pill">Shop</span>
-    <h1 class="mt-4 font-display text-4xl lg:text-6xl text-ink">The catalog.</h1>
-    <p class="mt-3 text-ink-soft max-w-2xl">Filter by brand, category, or country of origin. Tap a product to see details, weights, and how to request a quote.</p>
+    <h1 class="mt-4 font-display text-3xl sm:text-4xl lg:text-6xl text-ink">The catalog.</h1>
+    <p class="mt-3 text-sm sm:text-base text-ink-soft max-w-2xl">Filter by brand, category, or country of origin. Tap a product to see details, weights, and how to request a quote.</p>
 </section>
 
 {{-- ============ FILTERS ============ --}}

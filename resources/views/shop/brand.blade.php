@@ -14,13 +14,13 @@
 
         @if($brand['house'] ?? false)
             <span class="pill mt-4 !bg-brand-gold !text-ink !ring-brand-gold/40">House brand</span>
-            <h1 class="mt-4 font-script text-7xl lg:text-9xl text-brand-gold">{{ $brand['name'] }}</h1>
+            <h1 class="mt-4 font-script text-6xl sm:text-7xl lg:text-9xl text-brand-gold break-words">{{ $brand['name'] }}</h1>
         @else
             <span class="pill mt-4">Brand</span>
-            <h1 class="mt-4 font-display text-5xl lg:text-7xl">{{ $brand['name'] }}</h1>
+            <h1 class="mt-4 font-display text-4xl sm:text-5xl lg:text-7xl break-words">{{ $brand['name'] }}</h1>
         @endif
 
-        <p class="mt-4 text-lg max-w-2xl {{ ($brand['house'] ?? false) ? 'text-cream/85' : 'text-ink-soft' }}">{{ $brand['blurb'] }}</p>
+        <p class="mt-4 text-base sm:text-lg max-w-2xl {{ ($brand['house'] ?? false) ? 'text-cream/85' : 'text-ink-soft' }}">{{ $brand['blurb'] }}</p>
         <p class="mt-3 text-xs uppercase tracking-widest opacity-75">From {{ $brand['country'] }}</p>
     </div>
 

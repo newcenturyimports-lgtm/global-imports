@@ -9,8 +9,8 @@
     <div class="container-x py-20 lg:py-28 grid lg:grid-cols-12 gap-10 items-end">
         <div class="lg:col-span-7">
             <span class="pill">Est. 2005</span>
-            <h1 class="mt-5 font-display text-5xl lg:text-7xl text-balance text-ink">A family business, <em class="text-brand-red font-script not-italic">two continents</em>.</h1>
-            <p class="mt-5 text-lg text-ink-soft max-w-2xl">
+            <h1 class="mt-5 font-display text-3xl sm:text-4xl lg:text-7xl text-balance text-ink">A family business, <em class="text-brand-red font-script not-italic">two continents</em>.</h1>
+            <p class="mt-5 text-base sm:text-lg text-ink-soft max-w-2xl">
                 Twenty years ago, Irene Waithithu Waithaka opened the doors to New Century Imports
                 in Overland Park, Kansas — with a simple promise to source the groceries her
                 community missed from home. Two decades on, we're still doing exactly that, only
