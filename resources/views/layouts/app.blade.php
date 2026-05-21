@@ -24,22 +24,22 @@
 <body class="min-h-screen flex flex-col bg-cream">
 
     {{-- Top utility bar --}}
-    <div class="bg-brand-green-deep text-cream/90 text-[11px] sm:text-[12px]">
-        <div class="container-x flex items-center justify-between gap-3 py-2">
-            <div class="flex items-center gap-3 sm:gap-4 min-w-0">
-                <span class="hidden md:inline-flex items-center gap-1.5">
+    <div class="bg-brand-green-deep text-cream/90 text-[12px]">
+        <div class="container-x flex items-center justify-between py-2">
+            <div class="flex items-center gap-4">
+                <span class="hidden sm:inline-flex items-center gap-1.5">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>
                     9930 W 87th St, Overland Park, KS · Mon–Sat 9–8
                 </span>
-                <a href="tel:+19132279959" class="inline-flex items-center gap-1.5 hover:text-brand-gold whitespace-nowrap">
+                <a href="tel:+19132279959" class="inline-flex items-center gap-1.5 hover:text-brand-gold">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.6a1 1 0 01-.25 1z"/></svg>
                     +1 (913) 227-9959
                 </a>
             </div>
-            <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+            <div class="flex items-center gap-4">
                 <a href="{{ route('wholesale') }}" class="hover:text-brand-gold">Wholesale</a>
-                <span class="opacity-40 hidden sm:inline">·</span>
-                <a href="{{ route('contact') }}" class="hover:text-brand-gold hidden sm:inline">Contact</a>
+                <span class="opacity-40">·</span>
+                <a href="{{ route('contact') }}" class="hover:text-brand-gold">Contact</a>
             </div>
         </div>
     </div>

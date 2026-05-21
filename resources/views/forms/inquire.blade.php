@@ -7,8 +7,8 @@
 <section class="bg-grain">
     <div class="container-x py-16 lg:py-20">
         <span class="pill">Product inquiry</span>
-        <h1 class="mt-5 font-display text-3xl sm:text-4xl lg:text-6xl text-ink text-balance">Request a <em class="text-brand-red font-script not-italic">quote</em>.</h1>
-        <p class="mt-4 max-w-2xl text-base sm:text-lg text-ink-soft">
+        <h1 class="mt-5 font-display text-5xl lg:text-6xl text-ink text-balance">Request a <em class="text-brand-red font-script not-italic">quote</em>.</h1>
+        <p class="mt-4 max-w-2xl text-lg text-ink-soft">
             Looking for a specific product, a case quantity or a custom order?
             Drop us the details and we'll respond within one business day.
         </p>
