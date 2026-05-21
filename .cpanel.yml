@@ -1,8 +1,8 @@
 ---
 deployment:
   tasks:
-    - export APPPATH=/home/newcentu/global-imports
-    - export DEPLOYPATH=/home/newcentu/public_html
+    - export APPPATH=$PWD
+    - export DEPLOYPATH=$HOME/public_html
     # Bootstrap files for shared hosting
     - /bin/cp -f $APPPATH/deploy/public_html-index.php $DEPLOYPATH/index.php
     - /bin/cp -f $APPPATH/deploy/public_html-htaccess  $DEPLOYPATH/.htaccess
