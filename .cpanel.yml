@@ -20,8 +20,11 @@ deployment:
     # Bootstrap files into public_html
     - /bin/cp -f $APPPATH/deploy/public_html-index.php $DEPLOYPATH/index.php
     - /bin/cp -f $APPPATH/deploy/public_html-htaccess  $DEPLOYPATH/.htaccess
-    - /bin/cp -Rf $APPPATH/public/build  $DEPLOYPATH/
-    - /bin/cp -Rf $APPPATH/public/images $DEPLOYPATH/
+
+    # Wipe & replace build/ and images/ so old hashed CSS/JS files don't linger
+    - rm -rf $DEPLOYPATH/build $DEPLOYPATH/images
+    - /bin/cp -R $APPPATH/public/build  $DEPLOYPATH/
+    - /bin/cp -R $APPPATH/public/images $DEPLOYPATH/
     - /bin/cp -f $APPPATH/public/favicon.ico $DEPLOYPATH/ 2>/dev/null || true
 
     # Run migrations and rebuild caches

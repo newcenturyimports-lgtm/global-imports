@@ -8,8 +8,8 @@
 <section class="bg-grain">
     <div class="container-x py-16 lg:py-20">
         <span class="pill">For retailers, restaurants &amp; distributors</span>
-        <h1 class="mt-5 font-display text-5xl lg:text-6xl text-ink text-balance">Stock the world's pantry <em class="text-brand-red font-script not-italic">on your shelf</em>.</h1>
-        <p class="mt-4 max-w-2xl text-lg text-ink-soft">
+        <h1 class="mt-5 font-display text-3xl sm:text-4xl lg:text-6xl text-ink text-balance">Stock the world's pantry <em class="text-brand-red font-script not-italic">on your shelf</em>.</h1>
+        <p class="mt-4 max-w-2xl text-base sm:text-lg text-ink-soft">
             Tell us what you're looking for — categories, volumes, delivery cadence —
             and our procurement team will follow up with a quote and product sheet within two business days.
         </p>

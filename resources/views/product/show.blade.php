@@ -5,14 +5,16 @@
 
 @section('content')
 
-<section class="container-x pt-10 pb-4 text-xs uppercase tracking-widest text-ink-soft">
-    <a href="{{ route('home') }}" class="hover:text-brand-green">Home</a>
-    <span class="mx-2">/</span>
-    <a href="{{ route('shop.index') }}" class="hover:text-brand-green">Shop</a>
-    <span class="mx-2">/</span>
-    <a href="{{ route('shop.category', $category['slug']) }}" class="hover:text-brand-green">{{ $category['name'] }}</a>
-    <span class="mx-2">/</span>
-    <span class="text-ink">{{ $product['name'] }}</span>
+<section class="container-x pt-8 pb-4 overflow-x-auto">
+    <nav class="text-xs uppercase tracking-widest text-ink-soft whitespace-nowrap">
+        <a href="{{ route('home') }}" class="hover:text-brand-green">Home</a>
+        <span class="mx-2">/</span>
+        <a href="{{ route('shop.index') }}" class="hover:text-brand-green">Shop</a>
+        <span class="mx-2">/</span>
+        <a href="{{ route('shop.category', $category['slug']) }}" class="hover:text-brand-green">{{ $category['name'] }}</a>
+        <span class="mx-2">/</span>
+        <span class="text-ink">{{ $product['name'] }}</span>
+    </nav>
 </section>
 
 <section class="container-x py-10 lg:py-16 grid lg:grid-cols-2 gap-10 lg:gap-16">
@@ -45,21 +47,29 @@
         <div class="text-sm font-semibold uppercase tracking-widest text-brand-green-dark">
             <a href="{{ route('shop.brand', $brand['slug']) }}" class="link-underline">{{ $brand['name'] }}</a>
         </div>
-        <h1 class="mt-2 font-display text-4xl lg:text-5xl text-ink text-balance">{{ $product['name'] }}</h1>
+        <h1 class="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl text-ink text-balance break-words">{{ $product['name'] }}</h1>
 
-        <p class="mt-4 text-lg text-ink-soft">{{ $product['short'] ?? '' }}</p>
+        <p class="mt-4 text-base sm:text-lg text-ink-soft">{{ $product['short'] ?? '' }}</p>
 
-        <dl class="mt-8 grid grid-cols-2 gap-y-4 text-sm border-t border-sand pt-6">
+        <dl class="mt-8 divide-y divide-sand border-t border-sand text-sm">
             @if(!empty($product['weight']))
-                <dt class="text-ink-soft uppercase text-xs tracking-widest">Weight</dt>
-                <dd class="font-semibold">{{ $product['weight'] }}</dd>
+                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 py-3">
+                    <dt class="text-ink-soft uppercase text-xs tracking-widest sm:w-28 sm:shrink-0">Weight</dt>
+                    <dd class="font-semibold break-words">{{ $product['weight'] }}</dd>
+                </div>
             @endif
-            <dt class="text-ink-soft uppercase text-xs tracking-widest">Origin</dt>
-            <dd class="font-semibold">{{ $product['origin'] }}</dd>
-            <dt class="text-ink-soft uppercase text-xs tracking-widest">Brand</dt>
-            <dd class="font-semibold">{{ $brand['name'] }}</dd>
-            <dt class="text-ink-soft uppercase text-xs tracking-widest">Category</dt>
-            <dd class="font-semibold">{{ $category['name'] }}</dd>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 py-3">
+                <dt class="text-ink-soft uppercase text-xs tracking-widest sm:w-28 sm:shrink-0">Origin</dt>
+                <dd class="font-semibold break-words">{{ $product['origin'] }}</dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 py-3">
+                <dt class="text-ink-soft uppercase text-xs tracking-widest sm:w-28 sm:shrink-0">Brand</dt>
+                <dd class="font-semibold break-words">{{ $brand['name'] }}</dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 py-3">
+                <dt class="text-ink-soft uppercase text-xs tracking-widest sm:w-28 sm:shrink-0">Category</dt>
+                <dd class="font-semibold break-words">{{ $category['name'] }}</dd>
+            </div>
         </dl>
 
         <div class="mt-8 prose prose-sm max-w-none text-ink-soft">

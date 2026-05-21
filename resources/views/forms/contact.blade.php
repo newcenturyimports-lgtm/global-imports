@@ -7,8 +7,8 @@
 <section class="bg-grain">
     <div class="container-x py-16 lg:py-20">
         <span class="pill">Say hello</span>
-        <h1 class="mt-5 font-display text-5xl lg:text-6xl text-ink text-balance">We'd love to hear <em class="text-brand-red font-script not-italic">from you</em>.</h1>
-        <p class="mt-4 max-w-2xl text-lg text-ink-soft">
+        <h1 class="mt-5 font-display text-3xl sm:text-4xl lg:text-6xl text-ink text-balance">We'd love to hear <em class="text-brand-red font-script not-italic">from you</em>.</h1>
+        <p class="mt-4 max-w-2xl text-base sm:text-lg text-ink-soft">
             Visit our Overland Park storefront, call any of our offices, or drop us a note —
             we'll get back to you within one business day.
         </p>
