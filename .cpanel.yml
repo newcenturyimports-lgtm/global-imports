@@ -3,6 +3,8 @@ deployment:
   tasks:
     - export APPPATH=$PWD
     - export DEPLOYPATH=$HOME/public_html
+    # Stop chmod/file-mode changes from marking tracked files as "uncommitted"
+    - cd $APPPATH && git config core.fileMode false || true
     # Bootstrap files for shared hosting
     - /bin/cp -f $APPPATH/deploy/public_html-index.php $DEPLOYPATH/index.php
     - /bin/cp -f $APPPATH/deploy/public_html-htaccess  $DEPLOYPATH/.htaccess
@@ -11,11 +13,16 @@ deployment:
     - /bin/cp -Rf $APPPATH/public/images $DEPLOYPATH/
     - /bin/cp -f  $APPPATH/public/favicon.ico $DEPLOYPATH/ 2>/dev/null || true
     - /bin/cp -f  $APPPATH/public/robots.txt  $DEPLOYPATH/ 2>/dev/null || true
-    # Laravel: generate APP_KEY only if empty; always run migrations + caches
-    - cd $APPPATH && grep -q "^APP_KEY=$" .env && php artisan key:generate --force || true
+    # Laravel: generate APP_KEY only if .env value is empty
+    - cd $APPPATH && grep -Eq '^APP_KEY=[[:space:]]*$' .env && php artisan key:generate --force || true
     - cd $APPPATH && php artisan migrate --force
+    # Clear caches first (force re-read of .env), then rebuild
+    - cd $APPPATH && php artisan config:clear
+    - cd $APPPATH && php artisan route:clear
+    - cd $APPPATH && php artisan view:clear
     - cd $APPPATH && php artisan config:cache
     - cd $APPPATH && php artisan route:cache
     - cd $APPPATH && php artisan view:cache
-    # Permissions
-    - /bin/chmod -R 775 $APPPATH/storage $APPPATH/bootstrap/cache
+    # Permissions on directories only (avoid changing tracked file modes)
+    - find $APPPATH/storage -type d -exec chmod 775 {} \;
+    - find $APPPATH/bootstrap/cache -type d -exec chmod 775 {} \;
