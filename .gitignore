@@ -5,7 +5,7 @@
 /storage/*.key
 .env
 .env.backup
-.env.production
+# .env.production is checked in so cPanel deploy can use it as a template
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
