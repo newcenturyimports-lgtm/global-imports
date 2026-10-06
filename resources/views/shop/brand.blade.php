@@ -34,9 +34,11 @@
         <p class="text-center py-12 text-ink-soft">No products listed under this brand yet.</p>
     @else
         <h2 class="font-display text-2xl mb-6 text-ink">{{ $products->count() }} {{ \Illuminate\Support\Str::plural('product', $products->count()) }}</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
             @foreach($products as $product)
-                <x-product-card :product="$product" :brand="$brand"/>
+                <div class="w-[calc(50%_-_0.375rem)] sm:w-[calc(33.333%_-_0.667rem)] md:w-[calc(25%_-_0.75rem)] lg:w-[calc(20%_-_0.8rem)] xl:w-[calc(16.666%_-_0.833rem)]">
+                    <x-product-card :product="$product" :brand="$brand"/>
+                </div>
             @endforeach
         </div>
     @endif

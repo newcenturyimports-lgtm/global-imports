@@ -51,6 +51,13 @@
 
         <p class="mt-4 text-base sm:text-lg text-ink-soft">{{ $product['short'] ?? '' }}</p>
 
+        @if(!empty($product['price']))
+            <div class="mt-5 flex items-baseline gap-2">
+                <span class="font-display text-3xl text-brand-red">${{ number_format($product['price'], 2) }}</span>
+                <span class="text-xs uppercase tracking-widest text-ink-soft/60">est. retail</span>
+            </div>
+        @endif
+
         <dl class="mt-8 divide-y divide-sand border-t border-sand text-sm">
             @if(!empty($product['weight']))
                 <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 py-3">

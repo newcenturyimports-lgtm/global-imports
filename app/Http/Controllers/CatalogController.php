@@ -19,7 +19,7 @@ class CatalogController extends Controller
 
     public function shop(Request $request)
     {
-        $products = $this->products();
+        $products = $this->newProducts();
 
         if ($brand = $request->get('brand')) {
             $products = $products->where('brand', $brand);
@@ -52,7 +52,7 @@ class CatalogController extends Controller
 
         return view('shop.category', [
             'category' => $category,
-            'products' => $this->products()->where('category', $slug)->values(),
+            'products' => $this->newProducts()->where('category', $slug)->values(),
         ]);
     }
 
@@ -63,7 +63,7 @@ class CatalogController extends Controller
 
         return view('shop.brand', [
             'brand' => $brand,
-            'products' => $this->products()->where('brand', $slug)->values(),
+            'products' => $this->newProducts()->where('brand', $slug)->values(),
         ]);
     }
 
@@ -89,6 +89,11 @@ class CatalogController extends Controller
     protected function products(): Collection
     {
         return collect(config('catalog.products'));
+    }
+
+    protected function newProducts(): Collection
+    {
+        return $this->products()->filter(fn ($p) => $p['new'] ?? false)->values();
     }
 
     protected function brands(): Collection
