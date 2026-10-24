@@ -1,37 +1,39 @@
 ---
 deployment:
   tasks:
-    - export APPPATH=$PWD
-    - export DEPLOYPATH=$HOME/public_html
+    # NOTE: cPanel runs each task below as its own separate shell process —
+    # variables exported in one line do NOT carry over to the next. Every
+    # line here is self-contained: $PWD is the repo root (cPanel's default
+    # cwd for deployment tasks) and $HOME/public_html is the web root.
 
     # Don't let chmod mark tracked files as modified
-    - cd $APPPATH && git config core.fileMode false || true
+    - git config core.fileMode false || true
 
     # Create .env from template if it doesn't exist
-    - '[ -f $APPPATH/.env ] || /bin/cp $APPPATH/.env.production $APPPATH/.env'
+    - '[ -f .env ] || /bin/cp .env.production .env'
 
     # Generate APP_KEY if it's empty (matches "APP_KEY=" with nothing after)
-    - cd $APPPATH && grep -Eq "^APP_KEY=base64:" .env || php artisan key:generate --force
+    - grep -Eq "^APP_KEY=base64:" .env || php artisan key:generate --force
 
     # Wipe ALL cached config / routes / views before anything else
-    - rm -f $APPPATH/bootstrap/cache/config.php $APPPATH/bootstrap/cache/routes-v7.php $APPPATH/bootstrap/cache/services.php $APPPATH/bootstrap/cache/packages.php
-    - find $APPPATH/storage/framework/views -name "*.php" -delete 2>/dev/null || true
+    - rm -f bootstrap/cache/config.php bootstrap/cache/routes-v7.php bootstrap/cache/services.php bootstrap/cache/packages.php
+    - find storage/framework/views -name "*.php" -delete 2>/dev/null || true
 
     # Bootstrap files into public_html
-    - /bin/cp -f $APPPATH/deploy/public_html-index.php $DEPLOYPATH/index.php
-    - /bin/cp -f $APPPATH/deploy/public_html-htaccess  $DEPLOYPATH/.htaccess
+    - /bin/cp -f deploy/public_html-index.php $HOME/public_html/index.php
+    - /bin/cp -f deploy/public_html-htaccess  $HOME/public_html/.htaccess
 
     # Wipe & replace build/ and images/ so old hashed CSS/JS files don't linger
-    - rm -rf $DEPLOYPATH/build $DEPLOYPATH/images
-    - /bin/cp -R $APPPATH/public/build  $DEPLOYPATH/
-    - /bin/cp -R $APPPATH/public/images $DEPLOYPATH/
-    - /bin/cp -f $APPPATH/public/favicon.ico $DEPLOYPATH/ 2>/dev/null || true
+    - rm -rf $HOME/public_html/build $HOME/public_html/images
+    - /bin/cp -R public/build  $HOME/public_html/
+    - /bin/cp -R public/images $HOME/public_html/
+    - /bin/cp -f public/favicon.ico $HOME/public_html/ 2>/dev/null || true
 
     # Run migrations and rebuild caches
-    - cd $APPPATH && php artisan migrate --force
-    - cd $APPPATH && php artisan config:cache
-    - cd $APPPATH && php artisan route:cache
+    - php artisan migrate --force
+    - php artisan config:cache
+    - php artisan route:cache
 
     # Directory permissions only (not files — avoids tracked-mode changes)
-    - find $APPPATH/storage -type d -exec chmod 775 {} \;
-    - find $APPPATH/bootstrap/cache -type d -exec chmod 775 {} \;
+    - find storage -type d -exec chmod 775 {} \;
+    - find bootstrap/cache -type d -exec chmod 775 {} \;
