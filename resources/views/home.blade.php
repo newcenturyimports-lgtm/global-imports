@@ -31,10 +31,19 @@
                 <a href="{{ route('wholesale') }}" class="btn-ghost">Wholesale inquiries</a>
             </div>
 
-            <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-semibold uppercase tracking-widest text-ink-soft/70">
-                <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span> FDA &amp; USDA compliant</span>
-                <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span> Kansas + Kenya offices</span>
-                <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span> {{ $productCount }}+ products</span>
+            <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 sm:gap-x-0 sm:divide-x sm:divide-ink/10">
+                <span class="flex items-center gap-2 sm:pr-6 text-sm text-ink-soft">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-green shrink-0"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+                    FDA &amp; USDA compliant
+                </span>
+                <span class="flex items-center gap-2 sm:px-6 text-sm text-ink-soft">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-red shrink-0"><path d="M12 21s7-6.1 7-12a7 7 0 10-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    Kansas &amp; Kenya offices
+                </span>
+                <span class="flex items-center gap-2 sm:pl-6 text-sm text-ink-soft">
+                    <span class="font-display text-xl text-brand-gold-dark leading-none">{{ $productCount }}+</span>
+                    products in stock
+                </span>
             </div>
         </div>
 
